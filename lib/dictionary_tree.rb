@@ -8,8 +8,8 @@ class DictionaryTree
     @num_words = 0
 
     if dictionary
-      dictionary.each do |word,definition|
-        insert_word(word,definition)
+      dictionary.each do |item|
+        insert_word(item[0],item[1])
       end
     end
   end
@@ -18,7 +18,7 @@ class DictionaryTree
     current_node = @root
     current_depth = 0
     word.each_char do |c|
-      letter = current_node.children.index{ |item| item.letter = c }
+      letter = current_node.children.index{ |item| item.letter == c }
       if letter
         current_node = current_node.children[letter]
         current_depth += 1
@@ -44,12 +44,12 @@ class DictionaryTree
         current_node.children.each do |node|
           if node.letter == c
             current_node = node
+            break
           end
         end
-      else
-        return nil
       end
     end
+
     current_node.definition
   end
 
@@ -62,8 +62,6 @@ class DictionaryTree
             current_node = node
           end
         end
-      else
-        return nil
       end
     end
     current_node.definition = nil

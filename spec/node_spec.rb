@@ -58,4 +58,3 @@ describe LetterNode do
 
   end
 end
-

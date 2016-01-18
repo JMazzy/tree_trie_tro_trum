@@ -2,7 +2,6 @@ require 'spec_helper'
 require 'letter_node'
 require 'dictionary_tree'
 
-
 describe DictionaryTree do
 
   let(:word_apple) { ['apple', 'Fruit and software'] }
@@ -72,7 +71,7 @@ describe DictionaryTree do
       # Note: The "Splat" operator * effectively separates the array
       #    so the single array ["foo","bar"] becomes two separate
       #    strings "foo","bar"
-      dictionary_tree.insert_word(*word_cat)  
+      dictionary_tree.insert_word(*word_cat)
       expect(dictionary_tree.num_letters).to eq(3)
     end
 
@@ -496,7 +495,7 @@ describe DictionaryTree do
   # ----------------------------------------
   # Uncomment and make the tests pass
   # to earn extra credit
-  # 
+  #
 
 
   # ----------------------------------------
@@ -533,4 +532,3 @@ describe DictionaryTree do
   #   end
   # end
 end
-
